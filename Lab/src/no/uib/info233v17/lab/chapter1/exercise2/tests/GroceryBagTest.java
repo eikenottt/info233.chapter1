@@ -1,9 +1,11 @@
-package no.uib.info233v17.lab.chapter1.exercise2;
+package no.uib.info233v17.lab.chapter1.exercise2.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import no.uib.info233v17.lab.chapter1.exercise2.GroceryBag;
 
 public class GroceryBagTest {
 
