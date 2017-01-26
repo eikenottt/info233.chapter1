@@ -1,61 +1,59 @@
 package no.uib.info233v17.lab.chapter1.exercise2;
 
-import no.uib.info233v17.lab.chapter1.exercise2.interfaces.BagInterface;
+import java.util.ArrayList;
 
-public class GroceryBag<T> implements BagInterface<T>{
+public class GroceryBag {
 	
 	
 	private int capacity;
+	private ArrayList<String> bag;
 	
 
 	public GroceryBag() {
 		capacity = 10;
+		bag = new ArrayList<>();
 	}
 
 	public GroceryBag(int capacity) {
 		this.capacity = capacity;
 	}
 
-	@Override
-	public boolean add(T newEntry) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean add(String newEntry) {
+		if(bag.size() >= capacity) return false;
+		return bag.add(newEntry);
 	}
-
-	@Override
-	public boolean remove(Object anEntry) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
+	
+	public boolean removeSoup() {
 		
-	}
-
-	@Override
-	public boolean contains(Object anEntry) {
-		// TODO Auto-generated method stub
+		int counter = 0;
+		ArrayList<String> tempBag = new ArrayList<>();
+		
+		for (String string : bag) {
+			if(string.equals("soup")) {
+				tempBag.add(string);
+				counter++;
+			}
+		}
+		
+		if(counter > 0){
+			bag.removeAll(tempBag);
+			return true;
+		}
 		return false;
 	}
 
-	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return bag.size();
 	}
 
-	@Override
-	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+	public int countSoup() {
+		int counter = 0;
+		String soup = "soup";
+		for (String string : bag) {
+			if(string.equals(soup)) counter++;
+		}
+		return counter;
 	}
-
+	
+	
 }

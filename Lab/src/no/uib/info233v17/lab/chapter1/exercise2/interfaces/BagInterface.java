@@ -1,9 +1,9 @@
 package no.uib.info233v17.lab.chapter1.exercise2.interfaces;
 
-public interface BagInterface<T> {
+abstract public interface BagInterface<T> {
 	
 	//for adding items to bag
-	boolean add(T newEntry);
+	boolean add(String newEntry);
 	
 	boolean remove(Object anEntry);
 	
