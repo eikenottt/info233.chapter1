@@ -1,21 +1,38 @@
 package no.uib.info233v17.lab.chapter1.exercise2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GroceryBag {
 	
 	
 	private int capacity;
-	private ArrayList<String> bag;
+	private List<String> bag;
 	
-
+	
 	public GroceryBag() {
-		capacity = 10;
+		setCapacity(10);
 		bag = new ArrayList<>();
 	}
 
 	public GroceryBag(int capacity) {
+		setCapacity(capacity);
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
 		this.capacity = capacity;
+	}
+
+	public List<String> getBag() {
+		return bag;
+	}
+
+	public void setBag(ArrayList<String> bag) {
+		this.bag = bag;
 	}
 
 	public boolean add(String newEntry) {
@@ -55,5 +72,8 @@ public class GroceryBag {
 		return counter;
 	}
 	
+	public List<String> toArray() {
+		return getBag();
+	}
 	
 }

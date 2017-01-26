@@ -42,5 +42,15 @@ public class GroceryBagTest {
 		assertTrue(bag.removeSoup());
 		assertEquals(0, bag.countSoup());
 	}
+	
+	@Test
+	public void testToArray() {
+		System.out.println(bag.toArray());
+	}
+	
+	@Test
+	public void testToString() {
+		System.out.println(bag.toString());
+	}
 
 }
