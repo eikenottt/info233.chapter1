@@ -1,4 +1,4 @@
-package no.uib.info233v17.lab.chapter1.exercise2;
+package no.uib.info233v17.lab.chapter1.exercise2to4;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,5 +75,16 @@ public class GroceryBag {
 	public List<String> toArray() {
 		return getBag();
 	}
+
+	public List<String> toDistinctArray() {
+		List<String> myNewBag = new ArrayList<>();
+		
+		for (String string : bag) {
+			if(!myNewBag.contains(string)) myNewBag.add(string);
+		}
+		
+		return myNewBag;
+	}
+
 	
 }

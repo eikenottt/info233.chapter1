@@ -1,11 +1,15 @@
-package no.uib.info233v17.lab.chapter1.exercise2.tests;
+package no.uib.info233v17.lab.chapter1.exercise2to4.tests;
 
 import static org.junit.Assert.*;
+
+import java.util.List;
+import java.util.Arrays;
+
 
 import org.junit.Before;
 import org.junit.Test;
 
-import no.uib.info233v17.lab.chapter1.exercise2.GroceryBag;
+import no.uib.info233v17.lab.chapter1.exercise2to4.GroceryBag;
 
 public class GroceryBagTest {
 
@@ -15,7 +19,7 @@ public class GroceryBagTest {
 	@Before
 	public void setUp() throws Exception {
 		bag = new GroceryBag();
-		nineItems = new String[] {"soup","soup","golfball","hair","ball","moon","dog","cat","fish"};
+		nineItems = new String[] {"soup","soup","hair","hair","ball","ball","soup","cat","fish"};
 		for (String string : nineItems) {
 			bag.add(string);
 		}
@@ -23,7 +27,6 @@ public class GroceryBagTest {
 	
 	@Test
 	public void testCountSoup() {
-		bag.add("soup");
 		assertEquals(3, bag.countSoup());
 	}
 
@@ -34,7 +37,9 @@ public class GroceryBagTest {
 	
 	@Test
 	public void testAdd() {
-		assertEquals(true, bag.add("soup"));
+		bag.add("soup");
+		bag.add("soup");
+		assertFalse(bag.add("soup"));
 	}
 	
 	@Test
@@ -44,13 +49,10 @@ public class GroceryBagTest {
 	}
 	
 	@Test
-	public void testToArray() {
-		System.out.println(bag.toArray());
-	}
-	
-	@Test
-	public void testToString() {
-		System.out.println(bag.toString());
+	public void testDistinctArray() {
+		String[] list = {"soup","hair","ball","cat","fish"};
+		List<String> experctedArray = Arrays.asList(list);
+		assertEquals(experctedArray, bag.toDistinctArray());
 	}
 
 }
