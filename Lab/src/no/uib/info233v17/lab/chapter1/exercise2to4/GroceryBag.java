@@ -14,20 +14,12 @@ public class GroceryBag {
 	
 	
 	public GroceryBag() {
-		setCapacity(10);
+		capacity = 10;
 		bag = new ArrayList<>();
 	}
 
-	public GroceryBag(int capacity) {
-		setCapacity(capacity);
-	}
-
-	public int getCapacity() {
+    public int getCapacity() {
 		return capacity;
-	}
-
-	private void setCapacity(int capacity) {
-		this.capacity = capacity;
 	}
 
 	private List<String> getBag() {
