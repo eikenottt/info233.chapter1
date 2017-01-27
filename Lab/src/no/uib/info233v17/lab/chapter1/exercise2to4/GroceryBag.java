@@ -3,6 +3,9 @@ package no.uib.info233v17.lab.chapter1.exercise2to4;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class GroceryBag {
 	
 	
@@ -23,11 +26,11 @@ public class GroceryBag {
 		return capacity;
 	}
 
-	public void setCapacity(int capacity) {
+	private void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
 
-	public List<String> getBag() {
+	private List<String> getBag() {
 		return bag;
 	}
 
@@ -36,8 +39,7 @@ public class GroceryBag {
 	}
 
 	public boolean add(String newEntry) {
-		if(bag.size() >= capacity) return false;
-		return bag.add(newEntry);
+		return bag.size() < capacity && bag.add(newEntry);
 	}
 	
 	public boolean removeSoup() {
