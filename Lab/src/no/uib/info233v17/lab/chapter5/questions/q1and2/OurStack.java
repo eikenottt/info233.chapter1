@@ -86,9 +86,52 @@ public class OurStack<T> implements StackInterface<T> {
             nameStack.push(stringStack.pop());
         }
 
-        System.out.println(stringStack.toString());
-        System.out.println(nameStack.toString());
+        System.out.println("stringStack: " + stringStack.toString());
+        System.out.println("nameStack: " + nameStack.toString());
+        System.out.println();
 
+        StackInterface<String> s = new OurStack<>();
+        StackInterface<String> t = new OurStack<>();
+        s.push("a");
+        s.push("b");
+        s.push("c");
+        t.push("d");
+        t.push(s.pop());
+        t.push(s.peek());
+        s.push(t.pop());
+        t.pop();
+
+        System.out.println("Stack with name s: " + s.toString());
+        System.out.println("Stack with name t: " + t.toString());
+        System.out.println();
+
+        StackInterface<String> pile = new OurStack<>();
+        pile.push("Jane");
+        pile.push("Jess");
+        pile.push("Jill");
+        pile.push(pile.pop());
+        pile.push(pile.peek());
+        pile.push("Jim");
+        String name = pile.pop();
+        pile.push(pile.peek());
+
+        System.out.println("Pile contains: " + pile.toString());
+        System.out.println();
+
+        int n = 4;
+        StackInterface<Integer> stack = new OurStack<>();
+        while (n  > 0) {
+            stack.push(n);
+            n--;
+        }
+
+        int result = 1;
+        while (!stack.isEmpty()) {
+            int integer = stack.pop();
+            result = result * integer;
+        }
+
+        System.out.println("result = " + result);
     }
 
 }

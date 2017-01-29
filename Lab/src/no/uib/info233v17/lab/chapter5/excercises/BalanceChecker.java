@@ -1,4 +1,7 @@
-package no.uib.info233v17.lab.chapter5.questions.q1and2;
+package no.uib.info233v17.lab.chapter5.excercises;
+
+import no.uib.info233v17.lab.chapter5.questions.q1and2.OurStack;
+import no.uib.info233v17.lab.chapter5.questions.q1and2.StackInterface;
 
 /**
  * Created by Rune on 29.01.2017.
@@ -43,7 +46,7 @@ public class BalanceChecker {
     }
 
     public static void main(String[] args) {
-        String expression = "a {b [c (d + e)/2 - f] + 1}";
+        String expression = "a {b[c-d]e])f";
         boolean isBalanced = BalanceChecker.checkBalance(expression);
         if (isBalanced) {
             System.out.println(expression + " is balanced");
