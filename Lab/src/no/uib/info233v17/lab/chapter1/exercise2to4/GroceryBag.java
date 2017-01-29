@@ -80,5 +80,9 @@ public class GroceryBag {
 		return myNewBag;
 	}
 
-	
+	// TODO add BagInterface<String> everything = bag1.union(bag2)
+
+    public static void main(String[] args) {
+
+    }
 }
