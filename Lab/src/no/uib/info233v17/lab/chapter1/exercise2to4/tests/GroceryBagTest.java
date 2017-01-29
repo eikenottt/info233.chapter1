@@ -27,12 +27,12 @@ public class GroceryBagTest {
 	
 	@Test
 	public void testCountSoup() {
-		assertEquals(3, bag.countSoup());
+		assertEquals(3, bag.getFrequencyOf("soup"));
 	}
 
 	@Test
 	public void testSize() {	
-		assertEquals(9, bag.size());
+		assertEquals(9, bag.getCurrentSize());
 	}
 	
 	@Test
@@ -44,8 +44,8 @@ public class GroceryBagTest {
 	
 	@Test
 	public void testRemoveSoup() {
-		assertTrue(bag.removeSoup());
-		assertEquals(0, bag.countSoup());
+		assertTrue(bag.remove("soup"));
+		assertEquals(0, bag.getFrequencyOf("soup"));
 	}
 	
 	@Test

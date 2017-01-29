@@ -1,16 +1,18 @@
 package no.uib.info233v17.lab.chapter1.exercise2to4;
 
+import no.uib.info233v17.lab.chapter1.exercise2to4.interfaces.BagInterface;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  */
-public class GroceryBag {
+public class GroceryBag<T> implements BagInterface<T> {
 	
 	
 	private int capacity;
-	private List<String> bag;
+	private ArrayList<T> bag;
 	
 	
 	public GroceryBag() {
@@ -22,30 +24,51 @@ public class GroceryBag {
 		return capacity;
 	}
 
-	private List<String> getBag() {
+	public ArrayList<T> getBag() {
 		return bag;
 	}
 
-	public void setBag(ArrayList<String> bag) {
+	public void setBag(ArrayList<T> bag) {
 		this.bag = bag;
 	}
 
-	public boolean add(String newEntry) {
+	@Override
+	public int getCurrentSize() {
+		return bag.size();
+	}
+
+	@Override
+	public boolean isFull() {
+		return getCurrentSize() >= getCapacity();
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return getCurrentSize() <= 0;
+	}
+
+	@Override
+	public boolean add(T newEntry) {
 		return bag.size() < capacity && bag.add(newEntry);
 	}
-	
-	public boolean removeSoup() {
-		
+
+	@Override
+	public T remove() {
+		return null;
+	}
+
+	@Override
+	public boolean remove(T anEntry) {
 		int counter = 0;
-		ArrayList<String> tempBag = new ArrayList<>();
-		
-		for (String string : bag) {
-			if(string.equals("soup")) {
+		ArrayList<T> tempBag = new ArrayList<>();
+
+		for (T string : bag) {
+			if(string.equals(anEntry)) {
 				tempBag.add(string);
 				counter++;
 			}
 		}
-		
+
 		if(counter > 0){
 			bag.removeAll(tempBag);
 			return true;
@@ -53,27 +76,24 @@ public class GroceryBag {
 		return false;
 	}
 
-	public int size() {
-		return bag.size();
+	@Override
+	public void clear() {
+        bag.clear();
 	}
 
-	public int countSoup() {
+	@Override
+	public int getFrequencyOf(T anEntry) {
 		int counter = 0;
-		String soup = "soup";
-		for (String string : bag) {
-			if(string.equals(soup)) counter++;
+		for (T string : bag) {
+			if(anEntry.equals(string)) counter++;
 		}
 		return counter;
 	}
-	
-	public List<String> toArray() {
-		return getBag();
-	}
 
-	public List<String> toDistinctArray() {
-		List<String> myNewBag = new ArrayList<>();
+	public ArrayList<T> toDistinctArray() {
+		ArrayList<T> myNewBag = new ArrayList<>();
 		
-		for (String string : bag) {
+		for (T string : bag) {
 			if(!myNewBag.contains(string)) myNewBag.add(string);
 		}
 		
@@ -82,7 +102,20 @@ public class GroceryBag {
 
 	// TODO add BagInterface<String> everything = bag1.union(bag2)
 
-    public static void main(String[] args) {
+    @Override
+    public String toString() {
+        return "GroceryBag{" +
+                "bag=" + bag +
+                '}';
+    }
 
+    public static void main(String[] args) {
+        BagInterface<String> handlepose = new GroceryBag<>();
+        String[] handleliste = {"egg","soup","carrot","milk"};
+
+        for (String s : handleliste) {
+            handlepose.add(s);
+        }
+        System.out.println(handlepose.toString());
     }
 }
